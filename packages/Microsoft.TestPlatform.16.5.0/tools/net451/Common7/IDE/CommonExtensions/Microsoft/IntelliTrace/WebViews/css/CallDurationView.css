@@ -1,0 +1,405 @@
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    -ms-high-contrast-adjust: none;
+}
+
+.callDurationView {
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.callDurationTree {
+    height: 100%;
+    width: 100%;
+    padding-top: 1.78em;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.not-passthrough-pointer-events {
+    pointer-events: fill;
+}
+
+.grid-icon {
+    text-indent: 0px;
+    position: absolute;
+}
+
+.highlight-duration-text {
+    color: rgb(229, 20, 0) !important; /*[{vs-viz-surface-red-dark-text-color} !important;]*/
+}
+
+.highlight-duration-text-selected {
+    color: rgb(229, 20, 0) !important; /*[{vs-viz-surface-red-dark-highlight-color} !important;]*/
+}
+
+.hyperlink {
+    cursor: pointer;
+    color: rgb(14, 112, 192); /*[{vs-panel-hyperlink-color}]*/
+}
+
+.hyperlink:hover {
+    cursor: pointer;
+    color: rgb(0, 122, 204); /*[{vs-panel-hyperlink-hover-color}]*/
+}
+
+.calltree-hyperlink {
+}
+
+    .calltree-hyperlink a {
+        cursor: pointer;
+        color: rgb(14, 112, 192); /*[{vs-tool-window-link-color}]*/
+    }
+
+    .calltree-hyperlink a:hover {
+        cursor: pointer;
+        color: rgb(14, 112, 192); /*[{vs-tool-window-link-color}]*/
+    }
+
+.calltree-hyperlink-selected {
+}
+
+    .calltree-hyperlink-selected a {
+        cursor: pointer;
+        color: rgb(14, 112, 192); /*[{vs-tool-window-link-selected-color}]*/
+    }
+
+    .calltree-hyperlink-selected a:hover {
+        cursor: pointer;
+        color: rgb(14, 112, 192); /*[{vs-tool-window-link-selected-color}]*/
+    }
+
+.dotted-border {
+    border: dotted;
+    border-width: 1px;
+    border-color: grey; /*[{plugin-highlight-color}]*/
+}
+
+.floatleft {
+    float: left;
+}
+
+.border-placeholder {
+    border: 1px solid transparent !important;
+}
+
+.method-detail-grid-cell {
+    border: currentColor;
+    width: 100px;
+    text-align: left;
+    overflow: hidden;
+    vertical-align: middle;
+    float: left;
+    display: table-cell;
+    white-space: nowrap;
+    position: relative;
+    cursor: default;
+    -ms-text-overflow: ellipsis;
+}
+
+.method-detail-expand-icon {
+    text-indent: 0px;
+    position: absolute;
+    cursor: pointer;
+    left: 0px;
+    right: 2px;
+    top: 3px
+}
+
+.row-hover {
+    color: rgb(0, 0, 0); /*[{vs-tree-view-mouse-hover-foreground-color}]*/
+    background-color: rgb(255, 255, 255); /*[{vs-tree-view-mouse-hover-background-color}]*/
+}
+
+.highlight-hover {
+    color: rgb(0, 0, 0) !important; /*[{vs-viz-surface-red-dark-hover-color} !important]*/
+    background-color: rgb(255, 255, 255) !important; /*[{vs-tree-view-mouse-hover-background-color} !important]*/
+}
+
+.method-detail-expanded {
+    background: url("./Icons/method-detail-expand.png") no-repeat !important; /*[url({vs-image-treegrid-methoddetail-expanded}) no-repeat !important;]*/
+}
+
+.method-detail-collapsed {
+    background: url("./Icons/method-detail-collapse.png") no-repeat !important;/*[url({vs-image-treegrid-methoddetail-collapsed}) no-repeat !important;]*/
+}
+
+.method-detail-variable-icon {    
+    background: url("./Icons/variable.png") no-repeat 0px 0px !important; /*[url({vs-image-treegrid-variable}) no-repeat 0px 0px !important]*/
+}
+
+.grid-cell-nested-text {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+}
+
+.grid-cell-action-div {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    white-space: nowrap;
+}
+
+.debug-link-offset {
+    margin-left: 20px;
+}
+
+.grid-method-detail {
+    clear: both;
+    margin-top: -1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+}
+
+.text-wrapping {
+    white-space:pre-line;
+}
+
+.small-flame-icon {
+    background: url("./Icons/SmallHotPathGlyph.png") no-repeat; /*[url({vs-image-small-flame}) no-repeat]*/
+}
+
+.large-flame-icon {
+    background: url("./Icons/LargeHotPathGlyph.png") no-repeat; /*[url({vs-image-large-flame}) no-repeat]*/
+}
+
+.icon-placeholder {
+    width: 16px;
+}
+
+.invisible-element {
+    display: none;
+}
+
+.visible-element {
+    display: block;
+}
+
+/**
+  * The following 2 styles create a row border when row's nested grid is selected
+  */
+
+.call-duration-child-selected {
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-bottom-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-left-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-right-color: transparent;
+    border-width: 1px;
+}
+
+.frame-name-child-selected {
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-bottom-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-left-color: transparent;
+    border-right-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-width: 1px;
+}
+
+/**
+ * These classes extend/override the ones in grid.css.
+ * For this to work, this file has to be after grid.css in <link> list in the HTML file.
+ */
+
+.grid {
+    margin-top: -1px;
+    border-width: 0px;
+}
+
+.grid-cell {
+    padding-top: 2px;
+}
+
+.grid-row-normal {
+    border-left-width: 0px;
+}
+
+.grid-header {
+    border-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-width: 0px;
+    border-style: solid;
+    margin-left: 2px;
+}
+
+.grid-header-canvas {
+    border-bottom-width: 0px;
+}
+
+.grid-header-column {
+    border-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-style: solid;
+    border-width: 1px;
+    margin-right: -1px;
+}
+
+/**
+ * End of blocks for classes extending/overriding the ones in grid.css.
+ */
+
+/**
+ * These classes' values are copied from grid.css.
+ * Most of them are just to remove mouse hover effect from GridControl.
+ */
+
+.grid-row-no-hover {
+    margin: 0px;
+    width: 100%;
+    color: rgb(0, 0, 0); /*[{plugin-color}]*/
+    border: 1px solid transparent;
+    overflow: hidden;
+    position: absolute;
+    cursor: default;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.grid-row-selected-no-hover {
+    color: rgb(0, 0, 0); /*[{plugin-treeview-content-inactive-selected-color}]*/ 
+    background-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border: 1px solid transparent;
+}
+
+.nested-grid-canvas {
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    position: absolute;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -moz-user-select: -moz-none;
+}
+
+.has-header.grid .nested-grid-canvas {
+    top: 2.2em;
+}
+
+.show-ellipsis {
+    -ms-text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nested-grid-cell {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: currentColor;
+    width: 100px;
+    text-align: left;
+    text-indent: 2px;
+    overflow: hidden;
+    vertical-align: top;
+    float: left;
+    display: table-cell;
+    white-space: nowrap;
+    position: relative;
+    cursor: default;
+    -ms-text-overflow: ellipsis;
+}
+
+.nested-grid-header {
+    left: 0px;
+    top: 0px;
+    height: 2.2em;
+    right: 0px;
+    border-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-style: solid;
+    overflow: hidden;
+    position: absolute;
+    z-index: 6;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;    
+}
+
+.nested-grid-header-column {
+    background: url("./BptDiagnosticCommon/icons/grid-header-separator.png") no-repeat right top;
+    background-color: #FAFAFA; /*[{plugin-table-header-background-color}]*/
+    width: 20px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    border-right-color: rgb(230, 230, 230); /*[{plugin-treeview-content-inactive-selected-background-color}]*/
+    border-right-width: 1px;
+    border-right-style: solid;
+    float: left;
+    position: relative;
+    cursor: default;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+    .nested-grid-header-column:hover {
+        background-color: rgb(238, 238, 238); /*[{vs-command-bar-mouse-over-background-begin-color}]*/
+    }
+
+    .nested-grid-header-column:hover > .title {
+        color: rgb(0, 0, 0); /*[{plugin-treeview-content-inactive-selected-color}]*/
+    }
+
+    .nested-grid-header-column > .separator {
+        background: url("./BptDiagnosticCommon/icons/updownsep.png") repeat-y -1000px 0px;
+        top: 0px;
+        width: 12px;
+        right: -6px;
+        bottom: 0px;
+        z-index: 6;
+        cursor: e-resize;
+        position: absolute;
+    }
+
+    .nested-grid-header-column > .sort-handle {
+        z-index: 3;
+        font-family: Marlett !important;        
+        padding-top: 7px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-bottom: 4px;
+        text-align: left;
+        vertical-align: middle;
+        float:left;
+    }
+
+    .nested-grid-header-column > .title {
+        padding: 4px;
+        text-align: left;
+        vertical-align: middle;
+        float:left;
+        color: rgb(128, 128, 128); /*[{plugin-color}]*/
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: default;
+        text-overflow: ellipsis;
+    }
+
+    .nested-grid-header-column > .indented-title {
+        text-indent: 16px;
+    }
+
+/**
+ * End of block of classes whose values are copied from grid.css.
+ */

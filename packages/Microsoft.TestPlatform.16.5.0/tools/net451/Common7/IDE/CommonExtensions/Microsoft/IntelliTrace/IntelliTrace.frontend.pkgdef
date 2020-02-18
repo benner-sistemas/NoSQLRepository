@@ -1,0 +1,194 @@
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{A3237BC4-362E-4E89-AAE7-B73831CED65E}]
+"name"="Microsoft.IntelliTrace.Debugger"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.Debugger.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{1C4A976A-6C76-41F8-BD6B-8F3B10949553}]
+"name"="Microsoft.IntelliTrace.Concord"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.Concord.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{112EC688-0D00-4BB1-BDED-53A36EE299D0}]
+"name"="Microsoft.IntelliTrace.Debugger.Common"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.Debugger.Common.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{13118701-7206-4dce-964D-C02B67FAA757}]
+"name"="Microsoft.IntelliTrace.DebuggerMargin"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.DebuggerMargin.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{24E8F2DE-0644-42E8-BE53-41B4259EDB00}]
+"name"="Microsoft.IntelliTrace.Package"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.Package.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{C52B582D-3198-4DFE-BC8E-C99D11607D99}]
+"name"="Microsoft.IntelliTrace.Package.Common"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.Package.Common.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{50804E98-98BA-4DA5-A354-AA5ECF3437EC}]
+"name"="Microsoft.IntelliTrace.TelemetryObserver.Common"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.TelemetryObserver.Common.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{D8EDA0D6-9104-4016-816A-0D3241A29D68}]
+"name"="Microsoft.IntelliTrace.SearchMargin"
+"codeBase"="$PackageFolder$\Microsoft.IntelliTrace.SearchMargin.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\RuntimeConfiguration\dependentAssembly\codeBase\{64D406C4-0566-47cc-93EB-FA8FBFAF3B42}]
+"name"="Microsoft.VisualStudio.Diagnostics.TfsSymbolResolver"
+"codeBase"="$PackageFolder$\Microsoft.VisualStudio.Diagnostics.TfsSymbolResolver.dll"
+"publicKeyToken"="b03f5f7f11d50a3a"
+"culture"="neutral"
+"version"="16.0.0.0"
+[$RootKey$\CLSID\{cc8487da-137a-4983-b3d5-7e303de3c7de}]
+@="Microsoft.VisualStudio.TraceDebugger.Engine"
+"InprocServer32"="$System$\mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Microsoft.VisualStudio.TraceDebugger.Engine"
+"Assembly"="Microsoft.IntelliTrace.Debugger, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"RuntimeVersion"="v2.0.50727"
+[$RootKey$\CLSID\{5b85b6a6-cbff-4f31-be1d-6fe7f849e7d9}]
+@="Microsoft.VisualStudio.TraceDebugger.ProgramProvider"
+"InprocServer32"="$System$\mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Microsoft.VisualStudio.TraceDebugger.ProgramProvider"
+"Assembly"="Microsoft.IntelliTrace.Debugger, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"RuntimeVersion"="v2.0.50727"
+[$RootKey$\AD7Metrics\Engine\{2c18241e-069a-43b2-bd81-89c186af994b}]
+@="guidProteusEngine"
+"Name"="resource=$PackageFolder$\*\Microsoft.IntelliTrace.Profilerui.dll#102"
+"CLSID"="{cc8487da-137a-4983-b3d5-7e303de3c7de}"
+"AlwaysLoadLocal"=dword:00000000
+"AlwaysLoadProgramProviderLocal"=dword:00000001
+"Attach"=dword:00000000
+"ExcludeManualSelect"=dword:00000001
+"IntellitraceEngine"=dword:00000001
+"JITDebug"=dword:00000000
+"ConditionalBP"=dword:00000000
+"CallStackBP"=dword:00000000
+"DataBP"=dword:00000000
+"FunctionBP"=dword:00000000
+"HitCountBP"=dword:00000000
+"SetNextStatement"=dword:00000000
+"SuspendThread"=dword:00000000
+"Disassembly"=dword:00000000
+"Registers"=dword:00000000
+"ENC"=dword:00000000
+"Exceptions"=dword:00000000
+"PortSupplier"="{708C1ECA-FF48-11D2-904F-00C04FA302A1}"
+"ProgramProvider"="{5b85b6a6-cbff-4f31-be1d-6fe7f849e7d9}"
+"EngineCanWatchProcess"=dword:00000000
+"SqlClr"=dword:00000000
+"Interop"=dword:00000000
+"Embedded"=dword:00000000
+"RemoteDebugging"=dword:00000000
+"AutoSelectPriority"=dword:0000000a
+"EnginePriority"=dword:00000064
+"ProgramProviderAssembly"="Microsoft.IntelliTrace.Debugger, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+"ProgramProviderClass"="Microsoft.VisualStudio.TraceDebugger.ProgramProvider"
+"EngineAssembly"="Microsoft.IntelliTrace.Debugger, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+"EngineClass"="Microsoft.VisualStudio.TraceDebugger.Engine"
+[$RootKey$\Packages\{494b203e-3c94-40ab-b331-6cb32460b617}]
+@="Microsoft.VisualStudio.TraceLogPackage.TraceLogPackage"
+"InprocServer32"="$System$\mscoree.dll"
+"Class"="Microsoft.VisualStudio.TraceLogPackage.TraceLogPackage"
+"Assembly"="Microsoft.IntelliTrace.Package, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+[$RootKey$\Menus]
+"{494b203e-3c94-40ab-b331-6cb32460b617}"=", 1000.ctmenu, 1"
+[$RootKey$\ToolsOptionsPages\Debugging History]
+@="#600"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Sort"=dword:00000005
+[$RootKey$\ToolsOptionsPages\Debugging History\General]
+@="#601"
+"Keywords"="#605"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Page"="{b0ef32e4-b748-472b-be61-1095ac8f6f7d}"
+[$RootKey$\AutomationProperties\Debugging History\General]
+"Name"="Debugging History.General"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+[$RootKey$\AutomationProperties\Debugging History\Modules]
+"Name"="Debugging History.Modules"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+[$RootKey$\AutomationProperties\Debugging History\Diagnostic Events]
+"Name"="Debugging History.Diagnostic Events"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+[$RootKey$\AutomationProperties\Debugging History\Advanced]
+"Name"="Debugging History.Advanced"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+[$RootKey$\ToolsOptionsPages\Debugging History\Modules]
+@="#602"
+"Keywords"="#606"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Page"="{d399fea5-f283-4b70-99e2-f3e236b402d3}"
+[$RootKey$\ToolsOptionsPages\Debugging History\Diagnostic Events]
+@="#603"
+"Keywords"="#607"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Page"="{c4121f8f-eda8-4154-bbde-47d58c15fbf0}"
+[$RootKey$\ToolsOptionsPages\Debugging History\Advanced]
+@="#604"
+"Keywords"="#608"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Page"="{367bff42-f17a-4ddd-840e-0a3906e90951}"
+[$RootKey$\Debugger\LaunchHooks110]
+"ProteusLaunchHook"="{80c7a336-f1b2-410c-929b-f2213954d984}"
+[$RootKey$\CLSID\{80c7a336-f1b2-410c-929b-f2213954d984}]
+@="Microsoft.VisualStudio.TraceLogPackage.DebugLaunchHook"
+"InprocServer32"="$System$\mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Microsoft.VisualStudio.TraceLogPackage.DebugLaunchHook"
+"Assembly"="Microsoft.IntelliTrace.Package, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+"RuntimeVersion"="v2.0.50727"
+[$RootKey$\Projects\{6431C131-41F0-4513-BA55-30E011AFFD1F}\Filters\/1]
+@="#201"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"CommonFindFilesFilter"=dword:00000000
+"CommonOpenFilesFilter"=dword:00000000
+"FindInFilesFilter"=dword:00000000
+"NotOpenFileFilter"=dword:00000000
+"NotAddExistingItemFilter"=dword:00000000
+[$RootKey$\Editors\{4830b508-896d-456a-9132-3b9cbf61d65c}]
+@="TraceLogEditorFactory"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"DisplayName"="#501"
+"EditorTrustLevel"=dword:00000000
+"CommonPhysicalViewAttributes"=dword:00000000
+[$RootKey$\Editors\{50e58df5-adbf-4803-9893-3682ede3104f}]
+@="DetailsEditorFactory"
+"Package"="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"DisplayName"="#502"
+"EditorTrustLevel"=dword:00000000
+"CommonPhysicalViewAttributes"=dword:00000000
+[$RootKey$\Services\{60AFC91C-3AD5-4D33-8C00-D8EF5DEDDCD1}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="ITraceDebuggerService"
+[$RootKey$\Services\{0A094DD0-489D-4409-8FF7-75EF33FD1157}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="SIntelliTraceEventTaggerService"
+[$RootKey$\Services\{AFA99721-5CDC-4E0F-A0CE-62A9B1F467CD}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="SIntelliTraceEventGlyphFactoryService"
+[$RootKey$\Services\{71BF865A-8516-4B73-906F-9A6406BEA111}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="SIntelliTraceEditorFactoryChooserService"
+[$RootKey$\TraceDebugger]
+"CodeMapIntegrationEnabled"=dword:00000001
+[$RootKey$\Services\{7317943f-89f0-45c0-a2f6-3eabab1571af}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="SCustomDebuggerEventHandlerService"
+[$RootKey$\Services\{939E1B66-C374-417C-B1A3-E1FC9AE21433}]
+@="{494b203e-3c94-40ab-b331-6cb32460b617}"
+"Name"="SSnapshotDebuggerEventHandlerService"

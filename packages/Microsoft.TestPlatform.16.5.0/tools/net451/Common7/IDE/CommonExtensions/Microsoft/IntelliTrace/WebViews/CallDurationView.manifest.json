@@ -1,0 +1,139 @@
+{
+    "start_url": "CallDurationView.html",
+    "domain": "http://microsoft.com",
+    "resource_aliases": {
+        "Resources": {
+            "path": "ScriptResources",
+            "is_default": true 
+        }
+    },
+    "vs": { 
+        "theme_token_aliases": {
+            "vs-command-bar-mouse-down-background-begin-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "CommandBarMouseDownBackgroundBegin"
+            },
+            "vs-command-bar-mouse-over-background-begin-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "CommandBarMouseOverBackgroundBegin"
+            },		
+            "vs-tree-view-mouse-hover-background-color": {
+                "category": "6f4c1845-5111-4f31-b204-47cb6a466ee8",
+                "key_type": "BackgroundColor",
+                "name": "AdvancedListItemHover"
+            },		
+            "vs-tree-view-mouse-hover-foreground-color": {
+                "category": "6f4c1845-5111-4f31-b204-47cb6a466ee8",
+                "key_type": "ForegroundColor",
+                "name": "AdvancedListItemHover"
+            },
+			"vs-tool-window-link-color": {
+				"category": "6f4c1845-5111-4f31-b204-47cb6a466ee8",
+                "key_type": "BackgroundColor",
+                "name": "AdvancedListItemLink"
+			},
+			"vs-tool-window-link-hover-color": {
+				"category": "6f4c1845-5111-4f31-b204-47cb6a466ee8",
+                "key_type": "BackgroundColor",
+                "name": "AdvancedListItemLinkHover"
+			},
+			"vs-tool-window-link-selected-color": {
+				"category": "6f4c1845-5111-4f31-b204-47cb6a466ee8",
+                "key_type": "BackgroundColor",
+                "name": "AdvancedListItemLinkSelected"
+			},
+            "vs-command-bar-options-background-color": {
+	            "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "CommandBarOptionsBackground"
+            },
+            "vs-tool-window-background-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "ToolWindowBackground"
+            },
+            "vs-toolbox-background-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "ToolboxBackground"
+            },
+            "vs-tree-view-selected-item-inactive-color": {
+                "category": "92ecf08e-8b13-4cf4-99e9-ae2692382185",
+                "key_type": "BackgroundColor",
+                "name": "SelectedItemInactive"
+            },
+            "vs-panel-hyperlink-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "PanelHyperlink"
+            },
+            "vs-panel-hyperlink-hover-color": {
+                "category": "624ed9c3-bdfd-41fa-96c3-7c824ea32e3d",
+                "key_type": "BackgroundColor",
+                "name": "PanelHyperlinkHover"
+            },
+            "vs-viz-surface-red-dark-text-color": {
+                "category": "ffa74b06-e011-49be-a58c-3efaa4b957d5",
+                "key_type": "BackgroundColor",
+                "name": "VizSurfaceRedDarkText"
+            },
+            "vs-viz-surface-red-dark-highlight-color": {
+                "category": "ffa74b06-e011-49be-a58c-3efaa4b957d5",
+                "key_type": "BackgroundColor",
+                "name": "VizSurfaceRedDarkHighlight"
+            },
+            "vs-viz-surface-red-dark-hover-color": {
+                "category": "ffa74b06-e011-49be-a58c-3efaa4b957d5",
+                "key_type": "BackgroundColor",
+                "name": "VizSurfaceRedDark"
+            },
+            "vs-viz-surface-red-dark-highlight-color": {
+                "category": "ffa74b06-e011-49be-a58c-3efaa4b957d5",
+                "key_type": "BackgroundColor",
+                "name": "VizSurfaceRedDarkHighlight"
+            },
+            "vs-viz-surface-red-dark-hover-color": {
+                "category": "ffa74b06-e011-49be-a58c-3efaa4b957d5",
+                "key_type": "BackgroundColor",
+                "name": "VizSurfaceRedDarkHover"
+            }
+        },
+
+        "themed_images": {
+                "vs-image-treegrid-methoddetail-expanded": {
+                    "bitmap_source": "Icons/method-detail-expand.png",
+                    "background_color": "plugin-background-color"
+                },
+                "vs-image-treegrid-methoddetail-collapsed": {
+                    "bitmap_source": "Icons/method-detail-collapse.png",
+                    "background_color": "plugin-background-color"
+                },
+                "vs-image-treegrid-variable": {
+                    "bitmap_source": "Icons/variable.png",
+                    "background_color": "plugin-background-color"
+                },
+                "vs-image-tree-icons": {
+                    "bitmap_source": "BptDiagnosticCommon/icons/tree-icons.png",
+                    "background_color": "plugin-contextmenu-background-color"
+                },
+                "vs-image-icon-tree-collapsed": {
+                    "bitmap_source": "BptDiagnosticCommon/icons/itemCollapsedIcon.png",
+                    "background_color": "plugin-contextmenu-background-color"
+                },
+                "vs-image-icon-tree-expanded": {
+                    "bitmap_source": "BptDiagnosticCommon/icons/itemExpandedIcon.png",
+                    "background_color": "plugin-contextmenu-background-color"
+                },
+                "vs-image-large-flame": {
+                    "bitmap_source": "Icons/LargeHotPathGlyph.png",
+                    "background_color": "plugin-background-color"
+                },
+                "vs-image-small-flame": {
+                    "bitmap_source": "Icons/SmallHotPathGlyph.png",
+                    "background_color": "plugin-background-color"
+                }
+        }
+    }
+}
