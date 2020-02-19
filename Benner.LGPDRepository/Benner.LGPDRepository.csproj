@@ -53,7 +53,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TemplateSolution\Benner.NoSQLRepository.csproj">
+    <ProjectReference Include="..\Benner.NoSQLRepository\Benner.NoSQLRepository.csproj">
       <Project>{e7614b8a-49e0-432f-b396-acfb582f7fb4}</Project>
       <Name>Benner.NoSQLRepository</Name>
     </ProjectReference>

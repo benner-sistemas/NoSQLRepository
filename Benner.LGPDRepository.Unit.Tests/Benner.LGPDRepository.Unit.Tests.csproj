@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LGPDRepository\Benner.LGPDRepository.csproj" />
-    <ProjectReference Include="..\TemplateSolution\Benner.NoSQLRepository.csproj" />
+    <ProjectReference Include="..\Benner.LGPDRepository\Benner.LGPDRepository.csproj" />
+    <ProjectReference Include="..\Benner.NoSQLRepository\Benner.NoSQLRepository.csproj" />
   </ItemGroup>
 
 </Project>

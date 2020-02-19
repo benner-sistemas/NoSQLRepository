@@ -1,9 +1,0 @@
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\TemplateSolution.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\TemplateSolution.pdb
-C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateProject.csprojAssemblyReference.cache
-C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateProject.csproj.CoreCompileInputs.cache
-C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateSolution.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateSolution.pdb
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\Ninject.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\Ninject.xml
-C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateProject.csproj.CopyComplete
