@@ -7,8 +7,8 @@
     <ProjectGuid>{D4A8145D-0E27-4128-B418-50AC2061F28D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LGPDRepository</RootNamespace>
-    <AssemblyName>LGPDRepository</AssemblyName>
+    <RootNamespace>Benner.LGPDRepository</RootNamespace>
+    <AssemblyName>Benner.LGPDRepository</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

@@ -7,8 +7,8 @@
     <ProjectGuid>{E7614B8A-49E0-432F-B396-ACFB582F7FB4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TemplateSolution</RootNamespace>
-    <AssemblyName>TemplateSolution</AssemblyName>
+    <RootNamespace>Benner.NoSQLRepository</RootNamespace>
+    <AssemblyName>Benner.NoSQLRepository</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
