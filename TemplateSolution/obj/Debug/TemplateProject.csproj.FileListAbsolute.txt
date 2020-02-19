@@ -5,12 +5,5 @@ C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateProject.c
 C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateSolution.dll
 C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateSolution.pdb
 C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\Ninject.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\nunit.framework.dll
 C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\Ninject.xml
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\nunit.framework.pdb
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\nunit.framework.xml
 C:\benner\Template\TemplateSolution\TemplateSolution\obj\Debug\TemplateProject.csproj.CopyComplete
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\NUnit3.TestAdapter.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\NUnit3.TestAdapter.pdb
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\nunit.engine.dll
-C:\benner\Template\TemplateSolution\TemplateSolution\bin\Debug\nunit.engine.api.dll

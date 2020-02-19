@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace TemplateSolution.Interfaces
+namespace Benner.NoSQLRepository.Interfaces
 {
     /// <summary>
     /// Interface responsável por declarar o método Read, que lê um dado genérico de acordo com o filtro passado.

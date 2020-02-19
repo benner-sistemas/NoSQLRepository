@@ -1,9 +1,7 @@
-﻿using Ninject;
+﻿using Benner.NoSQLRepository.Interfaces;
 using System.Collections.Generic;
-using TemplateSolution.Interfaces;
-using TemplateSolution.Tests;
 
-namespace TemplateSolution
+namespace Benner.NoSQLRepository
 {
     public abstract class NoSQLRepository<Record, Filter>
     {
