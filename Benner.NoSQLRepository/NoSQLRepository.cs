@@ -31,7 +31,7 @@ namespace Benner.NoSQLRepository
         }
 
         /// <summary>
-        /// Método que chama o Reed do INoSQLQuery
+        /// Método que chama o Read do INoSQLQuery
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
