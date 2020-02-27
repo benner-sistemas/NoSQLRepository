@@ -11,7 +11,7 @@ namespace Benner.LGPDRepository.Unit.Tests
     {
 
         [Test]
-        public void MeuTeste()
+        public void RepositorioDeveLerRegistrosComFiltroERetornarResultado()
         {
             var iocKernel = new StandardKernel();
 
@@ -26,12 +26,12 @@ namespace Benner.LGPDRepository.Unit.Tests
             repository.Write(new LGPDRecord() { CPF = "blah3", Nome = "frida" });
             repository.Write(new LGPDRecord() { CPF = "blah4", Nome = "frida" });
 
-            List<LGPDRecord> result = repository.Read(new LGPDFilter { CPF = "blah1", Nome = "fritz" });
+            List<LGPDRecord> result = repository.Read(new LGPDFilter { CPF = "blah1", Nome = "frida" });
 
             Assert.IsNotNull(result);
             Assert.IsNotEmpty(result);
-            Assert.AreEqual(result[0].Nome, "fritz");
-            Assert.AreEqual(result[1].CPF, "blah1");
+            Assert.AreEqual(result[0].Nome, "frida");
+            Assert.AreEqual(result[0].CPF, "blah1");
         }
     }
 }
