@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace Benner.NoSQLRepository
 {
-    public static class FluentdWriter
+    public class FluentdCommand
     {
-        private static Logger _log = new LoggerConfiguration().WriteTo.Fluentd("localhost", 24224, "Repository.top").CreateLogger();
+        private Logger _log = new LoggerConfiguration().WriteTo.Fluentd("localhost", 24224, "Repository.top").CreateLogger();
 
-        public static void Write(object record)
+        public void Write(object record)
         {
             _log.Information("{@record}", record);
         }
 
-        public static void Dispose()
+        public void Dispose()
         {
             _log.Dispose();
         }

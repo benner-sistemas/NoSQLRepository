@@ -8,11 +8,17 @@ using System.Threading.Tasks;
 
 namespace Benner.LGPDRepository
 {
-    public class LGPDWriter : INoSQLCommand<LGPDRecord>
+    public class LGPDFluentDCommand : INoSQLCommand<LGPDRecord>
     {
+        private readonly FluentdCommand _fluentdCommand;
+        public void Dispose()
+        {
+            _fluentdCommand.Dispose();
+        }
+
         public void Write(LGPDRecord value)
         {
-            FluentdWriter.Write(value);
+            _fluentdCommand.Write(value);
         }
     }
 }

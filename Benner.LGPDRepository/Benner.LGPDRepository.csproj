@@ -48,10 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LGPDFilter.cs" />
-    <Compile Include="LGPDReader.cs" />
     <Compile Include="LGPDRecord.cs" />
     <Compile Include="LGPDRepository.cs" />
-    <Compile Include="LGPDWriter.cs" />
+    <Compile Include="LGPDFluentDCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

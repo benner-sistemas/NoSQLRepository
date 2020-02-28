@@ -6,6 +6,11 @@ namespace Benner.LGPDRepository.Unit.Test.Mocks
 {
     public class QueryMock : INoSQLQuery<LGPDRecord, LGPDFilter>
     {
+        public void Dispose()
+        {
+            
+        }
+
         public List<LGPDRecord> Read(LGPDFilter filter)
         {
             return MockCache.DataSource.Where(x => x.CPF == filter.CPF && x.Nome == filter.Nome).ToList();
