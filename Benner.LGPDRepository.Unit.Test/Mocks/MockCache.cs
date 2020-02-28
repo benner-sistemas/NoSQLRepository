@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Benner.LGPDRepository.Unit.Tests.Mocks
+namespace Benner.LGPDRepository.Unit.Test.Mocks
 {
     public static class MockCache
     {

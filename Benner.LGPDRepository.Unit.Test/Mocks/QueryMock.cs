@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Benner.LGPDRepository.Unit.Tests.Mocks
+namespace Benner.LGPDRepository.Unit.Test.Mocks
 {
     public class QueryMock : INoSQLQuery<LGPDRecord, LGPDFilter>
     {
