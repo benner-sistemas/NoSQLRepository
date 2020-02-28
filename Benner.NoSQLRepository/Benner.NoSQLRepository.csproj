@@ -93,7 +93,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElasticSearchReader.cs" />
     <Compile Include="FluentdWriter.cs" />
     <Compile Include="NoSQLRepository.cs" />
     <Compile Include="Interfaces\INoSQLCommand.cs" />
