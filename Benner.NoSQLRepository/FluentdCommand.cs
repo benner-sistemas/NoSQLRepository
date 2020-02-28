@@ -1,19 +1,16 @@
 ﻿using Serilog;
-using Serilog.Configuration;
 using Serilog.Core;
-using Serilog.Debugging;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Benner.NoSQLRepository
 {
-    public class FluentdCommand
+    public class FluentdCommand : IDisposable
     {
-        private Logger _log = new LoggerConfiguration().WriteTo.Fluentd("localhost", 24224, "Repository.top").CreateLogger();
+        private readonly Logger _log = new LoggerConfiguration().WriteTo.Fluentd("localhost", 24224, "fluentd.log").CreateLogger();
+
+        public string Host { get; set; }
+        public int Port { get; set; }
+        public string Tag { get; set; }
 
         public void Write(object record)
         {
@@ -22,7 +19,13 @@ namespace Benner.NoSQLRepository
 
         public void Dispose()
         {
+            //flush and close fluentd tcp connection
             _log.Dispose();
+        }
+
+        ~FluentdWriter()
+        {
+            Dispose();
         }
     }
 }
