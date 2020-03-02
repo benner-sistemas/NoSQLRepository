@@ -10,7 +10,8 @@ namespace Benner.LGPDRepository
 {
     public class LGPDFluentDCommand : INoSQLCommand<LGPDRecord>
     {
-        private readonly FluentdCommand _fluentdCommand;
+        private readonly FluentdCommand _fluentdCommand = new FluentdCommand();
+
         public void Dispose()
         {
             _fluentdCommand.Dispose();

@@ -39,22 +39,17 @@ namespace Benner.LGPDRepository.Unit.Test
         [TestMethod]
         public void EnviaMensagemParaOFluentD()
         {
-            ///new LGPDWriter().Write(new LGPDRecord() { CPF = "blah4", Nome = "frida" });
-            ///FluentdWriter.Dispose();
-            /////new ElasticSearchReader().Metodo<LGPDRecord>("k");
-
-
             var iocKernel = new StandardKernel();
 
             iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<LGPDFluentDCommand>();
             iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
 
-            using (var repository = iocKernel.Get<LGPDRepository>())
+            using (var repository = iocKernel.Get<LGPDFluentDCommand>())
             {
-                //TODO: garantir que o comand na instancio do repository é do tipo 'LGPDFluentDCommand'
-                //repository."Command" is LGPDFluentDCommand
+                Assert.IsInstanceOfType(repository, typeof(LGPDFluentDCommand));
+
+                repository.Dispose();
             }
-                //repository.Dispose();
         }
     }
 }

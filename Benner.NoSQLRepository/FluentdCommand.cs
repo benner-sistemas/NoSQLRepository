@@ -23,7 +23,7 @@ namespace Benner.NoSQLRepository
             _log.Dispose();
         }
 
-        ~FluentdWriter()
+        ~FluentdCommand()
         {
             Dispose();
         }
