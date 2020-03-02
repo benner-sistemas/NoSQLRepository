@@ -5,11 +5,9 @@ namespace Benner.LGPDRepository.Unit.Test.Mocks
 {
     public class CommandMock : INoSQLCommand<LGPDRecord>
     {
-        private readonly FluentdCommand _fluentdCommand = new FluentdCommand();
-
         public void Dispose()
         {
-            _fluentdCommand.Dispose();
+            return;
         }
 
         public void Write(LGPDRecord value)
