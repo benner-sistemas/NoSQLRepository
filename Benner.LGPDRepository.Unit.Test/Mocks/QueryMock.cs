@@ -19,7 +19,7 @@ namespace Benner.LGPDRepository.Unit.Test.Mocks
             return MockCache.DataSource.Where(
                 x =>
                 {
-                    if (x.Details is RecordDetails details)
+                    if (x.Details is LGPDRecordDetails details)
                         return details.Person["CPF"] == filter.CPF;
                     return false;
                 })
