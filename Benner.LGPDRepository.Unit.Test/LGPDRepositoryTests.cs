@@ -44,10 +44,12 @@ namespace Benner.LGPDRepository.Unit.Test
             iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<LGPDFluentDCommand>();
             iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
 
-            using (var repository = iocKernel.Get<LGPDFluentDCommand>())
-            {
-                Assert.IsInstanceOfType(repository, typeof(LGPDFluentDCommand));
-            }
+            var repository = iocKernel.Get<LGPDFluentDCommand>();
+
+            Assert.IsInstanceOfType(repository, typeof(LGPDFluentDCommand));
+
+            repository.Dispose();
+
         }
     }
 }
