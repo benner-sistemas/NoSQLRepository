@@ -1,9 +1,10 @@
 ﻿using Benner.NoSQLRepository.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace Benner.NoSQLRepository
 {
-    public abstract class NoSQLRepository<Record, Filter>
+    public abstract class NoSQLRepository<Record, Filter> : IDisposable
     {
         /// <summary>
         /// Writer, responsável por gravar os dados
@@ -38,6 +39,15 @@ namespace Benner.NoSQLRepository
         public virtual List<Record> Read(Filter filter)
         {
             return _query.Read(filter);
+        }
+
+        public void Dispose()
+        {
+            if (_command is IDisposable disposableCommand)
+                disposableCommand.Dispose();
+
+            if (_query is IDisposable disposableQuery)
+                disposableQuery.Dispose();
         }
     }
 }
