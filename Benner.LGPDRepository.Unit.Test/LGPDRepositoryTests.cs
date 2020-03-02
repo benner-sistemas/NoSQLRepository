@@ -47,8 +47,6 @@ namespace Benner.LGPDRepository.Unit.Test
             using (var repository = iocKernel.Get<LGPDFluentDCommand>())
             {
                 Assert.IsInstanceOfType(repository, typeof(LGPDFluentDCommand));
-
-                repository.Dispose();
             }
         }
     }
