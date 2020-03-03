@@ -1,16 +1,22 @@
 ﻿using Serilog;
 using Serilog.Core;
+using Serilog.Sinks.Fluentd;
 using System;
 
 namespace Benner.NoSQLRepository
 {
     public class FluentdCommand : IDisposable
     {
-        private readonly Logger _log = new LoggerConfiguration().WriteTo.Fluentd("localhost", 24224, "fluentd.log").CreateLogger();
+        private readonly Logger _log;
 
-        public string Host { get; set; }
-        public int Port { get; set; }
-        public string Tag { get; set; }
+        public FluentdCommand(FluentdOptions options)
+        {
+            if (options == null)
+                throw new ArgumentNullException(nameof(options));
+
+            var sinkOpts = new FluentdSinkOptions(options.Host, options.Port, options.Tag);
+            _log = new LoggerConfiguration().WriteTo.Fluentd(sinkOpts).CreateLogger();
+        }
 
         public void Write(object record)
         {

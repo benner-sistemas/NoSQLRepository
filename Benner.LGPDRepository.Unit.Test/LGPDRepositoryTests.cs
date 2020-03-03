@@ -17,6 +17,7 @@ namespace Benner.LGPDRepository.Unit.Test
 
             iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<CommandMock>();
             iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
 
             var repository = iocKernel.Get<LGPDRepository>();
 
@@ -79,15 +80,13 @@ namespace Benner.LGPDRepository.Unit.Test
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<LGPDFluentDCommand>();
+            iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<LGPDCommand>();
             iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
 
-            var repository = iocKernel.Get<LGPDFluentDCommand>();
-
-            Assert.IsInstanceOfType(repository, typeof(LGPDFluentDCommand));
-
-            repository.Dispose();
-
+            using (var repository = iocKernel.Get<LGPDRepository>())
+                Assert.IsInstanceOfType(repository, typeof(LGPDRepository));
         }
+
     }
 }

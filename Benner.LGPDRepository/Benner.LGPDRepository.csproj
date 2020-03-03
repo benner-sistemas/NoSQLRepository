@@ -52,7 +52,7 @@
     <Compile Include="Record\LGPDRecordDetails.cs" />
     <Compile Include="Record\LGPDRecord.cs" />
     <Compile Include="LGPDRepository.cs" />
-    <Compile Include="LGPDFluentDCommand.cs" />
+    <Compile Include="LGPDCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

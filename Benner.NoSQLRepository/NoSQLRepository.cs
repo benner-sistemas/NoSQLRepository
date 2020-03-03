@@ -16,10 +16,17 @@ namespace Benner.NoSQLRepository
         /// </summary>
         private readonly INoSQLQuery<Record, Filter> _query;
 
-        protected NoSQLRepository(INoSQLCommand<Record> command, INoSQLQuery<Record, Filter> query)
+        protected NoSQLRepository(INoSQLCommand<Record> command, INoSQLQuery<Record, Filter> query, INoSQLConfiguration configuration)
         {
-            _command = command;
-            _query = query;
+            _command = command ?? throw new ArgumentNullException(nameof(command));
+            _query = query ?? throw new ArgumentNullException(nameof(query));
+            var config = configuration ?? throw new ArgumentNullException(nameof(configuration));
+
+            config.LoadSettings();
+
+            var settings = new Dictionary<string, string>(config.Settings, StringComparer.InvariantCultureIgnoreCase);
+            _command.Configure(settings);
+            _query.Configure(settings);
         }
 
         /// <summary>

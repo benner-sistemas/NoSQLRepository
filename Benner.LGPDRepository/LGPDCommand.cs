@@ -1,16 +1,18 @@
 ﻿using Benner.NoSQLRepository;
+using Benner.NoSQLRepository.Extensions;
 using Benner.NoSQLRepository.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Benner.LGPDRepository
 {
-    public class LGPDFluentDCommand : INoSQLCommand<LGPDRecord>
+    public class LGPDCommand : INoSQLCommand<LGPDRecord>
     {
-        private readonly FluentdCommand _fluentdCommand = new FluentdCommand();
+        private FluentdCommand _fluentdCommand;
+
+        public void Configure(Dictionary<string, string> options)
+        {
+            _fluentdCommand = new FluentdCommand(options.TransformTo<FluentdOptions>("fluentd:"));
+        }
 
         public void Dispose()
         {
