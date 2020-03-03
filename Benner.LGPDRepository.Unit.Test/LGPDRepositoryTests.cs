@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Benner.LGPDRepository.Unit.Test
 {
@@ -85,8 +86,19 @@ namespace Benner.LGPDRepository.Unit.Test
             iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
 
             using (var repository = iocKernel.Get<LGPDRepository>())
+            {
+                Assert.IsNotNull(repository);
                 Assert.IsInstanceOfType(repository, typeof(LGPDRepository));
-        }
+                Assert.IsInstanceOfType(repository, typeof(IDisposable));
 
+                var commandField = typeof(LGPDRepository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
+                Assert.IsNotNull(commandField);
+                var commandInstance = commandField.GetValue(repository);
+                Assert.IsNotNull(commandInstance);
+
+                Assert.IsInstanceOfType(commandInstance, typeof(LGPDCommand));
+                Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
+            }
+        }
     }
 }
