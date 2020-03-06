@@ -3,9 +3,9 @@ using Benner.NoSQLRepository.Extensions;
 using Benner.NoSQLRepository.Interfaces;
 using System.Collections.Generic;
 
-namespace Benner.LGPDRepository
+namespace Benner.LGPD
 {
-    public class LGPDCommand : INoSQLCommand<LGPDRecord>
+    public class Command : INoSQLCommand<Record>
     {
         private FluentdCommand _fluentdCommand;
 
@@ -19,7 +19,7 @@ namespace Benner.LGPDRepository
             _fluentdCommand.Dispose();
         }
 
-        public void Write(LGPDRecord value)
+        public void Write(Record value)
         {
             _fluentdCommand.Write(value);
         }

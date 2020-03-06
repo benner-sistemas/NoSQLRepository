@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 
-namespace Benner.LGPDRepository
+namespace Benner.LGPD
 {
-    public class DefaultFileConfig : INoSQLConfiguration
+    public class FileConfig : INoSQLConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
 

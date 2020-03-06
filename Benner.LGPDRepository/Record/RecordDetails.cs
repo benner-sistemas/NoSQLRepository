@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Benner.LGPDRepository
+namespace Benner.LGPD
 {
-    public class LGPDRecordDetails : ILGPDRecordDetails
+    public class RecordDetails : IRecordDetails
     {
-        public LGPDRecordDetails()
+        public RecordDetails()
         {
             Person = new Dictionary<string, string>();
         }

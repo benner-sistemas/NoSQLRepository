@@ -1,6 +1,6 @@
-﻿namespace Benner.LGPDRepository
+﻿namespace Benner.LGPD
 {
-    public class LGPDFilter
+    public class Filter
     {
         public string CPF { get; set; }
 

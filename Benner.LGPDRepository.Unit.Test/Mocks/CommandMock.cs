@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Benner.LGPD;
 using Benner.NoSQLRepository;
 using Benner.NoSQLRepository.Interfaces;
 
 namespace Benner.LGPDRepository.Unit.Test.Mocks
 {
-    public class CommandMock : INoSQLCommand<LGPDRecord>
+    public class CommandMock : INoSQLCommand<Record>
     {
         public void Configure(Dictionary<string, string> options)
         { }
@@ -13,7 +14,7 @@ namespace Benner.LGPDRepository.Unit.Test.Mocks
         {
         }
 
-        public void Write(LGPDRecord value)
+        public void Write(Record value)
         {
             MockCache.DataSource.Add(value);
         }

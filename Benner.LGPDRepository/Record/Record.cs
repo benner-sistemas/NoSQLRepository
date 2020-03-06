@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Benner.LGPDRepository
+namespace Benner.LGPD
 {
-    public class LGPDRecord
+    public class Record
     {
         public DateTime AccessTimestamp { get; set; }
         public string AccessUsername { get; set; }
-        public ILGPDRecordDetails Details { get; set; }
+        public IRecordDetails Details { get; set; }
     }
 }

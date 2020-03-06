@@ -1,4 +1,5 @@
-﻿using Benner.LGPDRepository.Unit.Test.Mocks;
+﻿using Benner.LGPD;
+using Benner.LGPDRepository.Unit.Test.Mocks;
 using Benner.NoSQLRepository.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
@@ -16,17 +17,17 @@ namespace Benner.LGPDRepository.Unit.Test
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<CommandMock>();
-            iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
             iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
 
-            var repository = iocKernel.Get<LGPDRepository>();
+            var repository = iocKernel.Get<Repository>();
 
-            repository.Write(new LGPDRecord()
+            repository.Write(new Record
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "sysdba",
-                Details = new LGPDRecordDetails
+                Details = new RecordDetails
                 {
                     Person =
                     {
@@ -37,11 +38,11 @@ namespace Benner.LGPDRepository.Unit.Test
                     Fields = "RG, CPF, EMAIL, SALARIO",
                 },
             });
-            repository.Write(new LGPDRecord()
+            repository.Write(new Record()
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "joao.melo",
-                Details = new LGPDRecordDetails
+                Details = new RecordDetails
                 {
                     Person =
                     {
@@ -52,11 +53,11 @@ namespace Benner.LGPDRepository.Unit.Test
                     Fields = "RG, CPF, EMAIL, SALARIO",
                 },
             });
-            repository.Write(new LGPDRecord()
+            repository.Write(new Record
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "joao.melo",
-                Details = new LGPDRecordDetails
+                Details = new RecordDetails
                 {
                     Person =
                     {
@@ -69,11 +70,11 @@ namespace Benner.LGPDRepository.Unit.Test
             });
 
             var cpfToSearch = "123.321.321-99";
-            List<LGPDRecord> result = repository.Read(new LGPDFilter { CPF = cpfToSearch });
+            List<Record> result = repository.Read(new Filter { CPF = cpfToSearch });
             Assert.IsNotNull(result);
             Assert.AreEqual(2, result.Count);
-            Assert.AreEqual(cpfToSearch, ((LGPDRecordDetails)result[0].Details).Person["CPF"]);
-            Assert.AreEqual(cpfToSearch, ((LGPDRecordDetails)result[1].Details).Person["CPF"]);
+            Assert.AreEqual(cpfToSearch, ((RecordDetails)result[0].Details).Person["CPF"]);
+            Assert.AreEqual(cpfToSearch, ((RecordDetails)result[1].Details).Person["CPF"]);
         }
 
         [TestMethod]
@@ -81,22 +82,22 @@ namespace Benner.LGPDRepository.Unit.Test
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<LGPDRecord>>().To<LGPDCommand>();
-            iocKernel.Bind<INoSQLQuery<LGPDRecord, LGPDFilter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
             iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
 
-            using (var repository = iocKernel.Get<LGPDRepository>())
+            using (var repository = iocKernel.Get<Repository>())
             {
                 Assert.IsNotNull(repository);
-                Assert.IsInstanceOfType(repository, typeof(LGPDRepository));
+                Assert.IsInstanceOfType(repository, typeof(Repository));
                 Assert.IsInstanceOfType(repository, typeof(IDisposable));
 
-                var commandField = typeof(LGPDRepository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
+                var commandField = typeof(Repository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
                 Assert.IsNotNull(commandField);
                 var commandInstance = commandField.GetValue(repository);
                 Assert.IsNotNull(commandInstance);
 
-                Assert.IsInstanceOfType(commandInstance, typeof(LGPDCommand));
+                Assert.IsInstanceOfType(commandInstance, typeof(Command));
                 Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
             }
         }
