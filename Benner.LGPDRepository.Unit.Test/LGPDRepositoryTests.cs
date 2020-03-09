@@ -158,35 +158,40 @@ namespace Benner.LGPDRepository.Unit.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Ninject.ActivationException))]
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteCommandMock()
         {
-            var iocKernel = new StandardKernel();
-            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
-            iocKernel.Get<Repository>();
+            Assert.ThrowsException<Ninject.ActivationException>(() =>
+            {
+                var iocKernel = new StandardKernel();
+                iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+                iocKernel.Get<Repository>();
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Ninject.ActivationException))]
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteQueryMock()
         {
-            var iocKernel = new StandardKernel();
-            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            iocKernel.Get<Repository>();
+            Assert.ThrowsException<Ninject.ActivationException>(() =>
+            {
+                var iocKernel = new StandardKernel();
+                iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+                iocKernel.Get<Repository>();
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Ninject.ActivationException))]
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoQueryECommandMock()
         {
-            var iocKernel = new StandardKernel();
-            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
-            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            iocKernel.Get<Repository>();
+            Assert.ThrowsException<Ninject.ActivationException>(() =>
+            {
+                var iocKernel = new StandardKernel();
+                iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+                iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+                iocKernel.Get<Repository>();
+            });
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Ninject.ActivationException))]
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdSemInjecao()
         {
             var iocKernel = new StandardKernel();
