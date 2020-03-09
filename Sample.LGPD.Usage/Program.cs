@@ -37,6 +37,7 @@ namespace Sample.LGPD.Usage
 
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandSample>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
+            iocKernel.Bind<INoSQLConfiguration>().To<FileConfig>();
 
             _repository = iocKernel.Get<Repository>();
             SendToLog();
@@ -47,7 +48,7 @@ namespace Sample.LGPD.Usage
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandSample>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
             iocKernel.Bind<INoSQLConfiguration>().To<InMemoryConfig>();
 

@@ -5,12 +5,8 @@ namespace Benner.LGPD
 {
     public class Repository : NoSQLRepository<Record, Filter>
     {
-        public Repository(INoSQLCommand<Record> command, INoSQLQuery<Record, Filter> query, INoSQLConfiguration config) 
-            : base(command, query, config)
-        { }
-
-        public Repository()
-            : base(new Command(), new EmptyQuery(), new FileConfig())
+        public Repository(INoSQLCommand<Record> command = null, INoSQLQuery<Record, Filter> query = null, INoSQLConfiguration config = null)
+            : base(command ?? new Command(), query ?? new EmptyQuery(), config ?? new FileConfig())
         { }
     }
 }

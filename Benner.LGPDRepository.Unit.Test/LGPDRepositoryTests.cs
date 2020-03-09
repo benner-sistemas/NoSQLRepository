@@ -101,5 +101,103 @@ namespace Benner.LGPDRepository.Unit.Test
                 Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
             }
         }
+
+        [TestMethod]
+        public void GaranteOsTiposInjetados()
+        {
+            using (var repo = new Repository())
+            { }
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLConfiguration>().To<FileConfig>();
+
+
+            using (var repository = iocKernel.Get<Repository>())
+            {
+                Assert.IsNotNull(repository);
+                Assert.IsInstanceOfType(repository, typeof(Repository));
+                Assert.IsInstanceOfType(repository, typeof(IDisposable));
+
+                var commandField = typeof(Repository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
+                var queryField = typeof(Repository).BaseType.GetField("_query", BindingFlags.Instance | BindingFlags.NonPublic);
+                Assert.IsNotNull(commandField);
+                Assert.IsNotNull(queryField);
+                var commandInstance = commandField.GetValue(repository);
+                var queryInstance = queryField.GetValue(repository);
+                Assert.IsNotNull(commandInstance);
+                Assert.IsNotNull(queryInstance);
+
+                Assert.IsInstanceOfType(commandInstance, typeof(CommandMock));
+                Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
+                Assert.IsInstanceOfType(queryInstance, typeof(QueryMock));
+                Assert.IsInstanceOfType(queryInstance, typeof(IDisposable));
+            }
+        }
+
+        [TestMethod]
+        public void GaranteOsTiposSemInjecao()
+        {
+            using (var repo = new Repository())
+            {
+                Assert.IsNotNull(repo);
+                Assert.IsInstanceOfType(repo, typeof(Repository));
+                Assert.IsInstanceOfType(repo, typeof(IDisposable));
+
+                var commandField = typeof(Repository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
+                var queryField = typeof(Repository).BaseType.GetField("_query", BindingFlags.Instance | BindingFlags.NonPublic);
+                Assert.IsNotNull(commandField);
+                Assert.IsNotNull(queryField);
+                var commandInstance = commandField.GetValue(repo);
+                var queryInstance = queryField.GetValue(repo);
+                Assert.IsNotNull(commandInstance);
+                Assert.IsNotNull(queryInstance);
+
+                Assert.IsInstanceOfType(commandInstance, typeof(Command));
+                Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
+                Assert.IsInstanceOfType(queryInstance, typeof(EmptyQuery));
+                Assert.IsInstanceOfType(queryInstance, typeof(IDisposable));
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Ninject.ActivationException))]
+        public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteCommandMock()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Get<Repository>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Ninject.ActivationException))]
+        public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteQueryMock()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+            iocKernel.Get<Repository>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Ninject.ActivationException))]
+        public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoQueryECommandMock()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+            iocKernel.Get<Repository>();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Ninject.ActivationException))]
+        public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdSemInjecao()
+        {
+            var iocKernel = new StandardKernel();
+            iocKernel.Get<Repository>();
+        }
     }
 }
