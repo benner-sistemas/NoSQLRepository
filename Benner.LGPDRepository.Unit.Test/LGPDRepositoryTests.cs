@@ -192,5 +192,19 @@ namespace Benner.LGPDRepository.Unit.Test
             var iocKernel = new StandardKernel();
             iocKernel.Get<Repository>();
         }
+
+        [TestMethod]
+        public void TestandoConfiguraçãoVazia()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<EmptyQuery>();
+            iocKernel.Bind<INoSQLConfiguration>().To<EmptyConfigMock>();
+
+
+            using (var repo = iocKernel.Get<Repository>())
+            { }
+        }
     }
 }
