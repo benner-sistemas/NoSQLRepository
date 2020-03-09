@@ -16,6 +16,12 @@ namespace Benner.NoSQLRepository
 
             var sinkOpts = new FluentdSinkOptions(options.Host, options.Port, options.Tag);
             _log = new LoggerConfiguration().WriteTo.Fluentd(sinkOpts).CreateLogger();
+
+            if (string.IsNullOrWhiteSpace(options.Host))
+                throw new InvalidOperationException("A propriedade 'fluentd:host' deve ser informada");
+
+            if(string.IsNullOrWhiteSpace(options.Tag))
+                throw new InvalidOperationException("A propriedade 'fluentd:Tag' deve ser informada");
         }
 
         public void Write(object record)

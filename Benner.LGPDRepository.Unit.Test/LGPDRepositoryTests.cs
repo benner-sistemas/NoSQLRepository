@@ -190,21 +190,26 @@ namespace Benner.LGPDRepository.Unit.Test
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdSemInjecao()
         {
             var iocKernel = new StandardKernel();
-            iocKernel.Get<Repository>();
+
+            Assert.ThrowsException<Ninject.ActivationException>(() =>
+            {
+                iocKernel.Get<Repository>();
+            });
         }
+
 
         [TestMethod]
         public void TestandoConfiguraçãoVazia()
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
-            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<EmptyQuery>();
-            iocKernel.Bind<INoSQLConfiguration>().To<EmptyConfigMock>();
-
-
-            using (var repo = iocKernel.Get<Repository>())
-            { }
+            Assert.ThrowsException<InvalidOperationException>(() =>
+            {
+                iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
+                iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<EmptyQuery>();
+                iocKernel.Bind<INoSQLConfiguration>().To<EmptyConfigMock>();
+                var repo = iocKernel.Get<Repository>();
+            });
         }
     }
 }

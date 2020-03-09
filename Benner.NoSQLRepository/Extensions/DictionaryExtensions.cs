@@ -30,7 +30,7 @@ namespace Benner.NoSQLRepository.Extensions
         {
             var obj = new T();
             foreach (var item in dictionary)
-                if (item.Key.StartsWith(keyPrefix, StringComparison.InvariantCultureIgnoreCase))
+                if (item.Key.StartsWith(keyPrefix, StringComparison.InvariantCultureIgnoreCase) && item.Value != null)
                 {
                     var key = item.Key.Remove(0, keyPrefix.Length);
                     var prop = typeof(T).GetProperty(key, BindingFlags.Instance | BindingFlags.Public | BindingFlags.IgnoreCase);
