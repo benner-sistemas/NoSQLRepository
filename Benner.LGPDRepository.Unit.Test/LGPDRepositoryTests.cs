@@ -105,14 +105,10 @@ namespace Benner.LGPDRepository.Unit.Test
         [TestMethod]
         public void GaranteOsTiposInjetados()
         {
-            using (var repo = new Repository())
-            { }
             var iocKernel = new StandardKernel();
-
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
             iocKernel.Bind<INoSQLConfiguration>().To<FileConfig>();
-
 
             using (var repository = iocKernel.Get<Repository>())
             {
@@ -166,7 +162,6 @@ namespace Benner.LGPDRepository.Unit.Test
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteCommandMock()
         {
             var iocKernel = new StandardKernel();
-
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
             iocKernel.Get<Repository>();
         }
@@ -176,7 +171,6 @@ namespace Benner.LGPDRepository.Unit.Test
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoSomenteQueryMock()
         {
             var iocKernel = new StandardKernel();
-
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
             iocKernel.Get<Repository>();
         }
@@ -186,7 +180,6 @@ namespace Benner.LGPDRepository.Unit.Test
         public void LancaExcecaoQuandoNaoExisteArquivoDeConfiguracaoDoFluentdPassandoQueryECommandMock()
         {
             var iocKernel = new StandardKernel();
-
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
             iocKernel.Get<Repository>();
