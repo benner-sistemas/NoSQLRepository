@@ -1,4 +1,6 @@
 ﻿using Benner.LGPD;
+using Benner.NoSQLRepository.Interfaces;
+using Ninject;
 using System;
 
 namespace Sample.LGPD.Usage
@@ -31,34 +33,27 @@ namespace Sample.LGPD.Usage
 
         private static void DependencyInjectionUsage()
         {
-            // var iocKernel = new StandardKernel();
-            // TODO: em vez de usar os mocks, usar os default igual do construtor sem parâmetro:
-            // new Command(), new EmptyQuery(), new FileConfig()
+            var iocKernel = new StandardKernel();
 
-            //iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
-            //iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            //iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandSample>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
 
-            // _repository = iocKernel.Get<Repository>();
-            // SendToLog();
-            // _repository.Dispose();
+            _repository = iocKernel.Get<Repository>();
+            SendToLog();
+            _repository.Dispose();
         }
 
         private static void InMemoryConfigUsage()
         {
-            // var iocKernel = new StandardKernel();
-            // TODO: em vez de usar os mocks, usar os default igual do construtor sem parâmetro:
-            // new Command(), new EmptyQuery(), new FileConfig()
+            var iocKernel = new StandardKernel();
 
-            // injetar um InMemoryConfig que é uma cópia do MockConfig
+            iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
+            iocKernel.Bind<INoSQLConfiguration>().To<InMemoryConfig>();
 
-            //iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
-            //iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            //iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
-
-            // _repository = iocKernel.Get<Repository>();
-            // SendToLog();
-            // _repository.Dispose();
+            _repository = iocKernel.Get<Repository>();
+            SendToLog();
+            _repository.Dispose();
         }
 
         private static void SendToLog()
