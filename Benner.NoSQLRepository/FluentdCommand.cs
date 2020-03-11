@@ -2,6 +2,7 @@
 using Serilog.Core;
 using Serilog.Sinks.Fluentd;
 using System;
+using System.Net.Sockets;
 
 namespace Benner.NoSQLRepository
 {
@@ -14,14 +15,25 @@ namespace Benner.NoSQLRepository
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
 
-            var sinkOpts = new FluentdSinkOptions(options.Host, options.Port, options.Tag);
-            _log = new LoggerConfiguration().WriteTo.Fluentd(sinkOpts).CreateLogger();
-
             if (string.IsNullOrWhiteSpace(options.Host))
                 throw new InvalidOperationException("A propriedade 'fluentd:host' deve ser informada");
 
             if(string.IsNullOrWhiteSpace(options.Tag))
                 throw new InvalidOperationException("A propriedade 'fluentd:Tag' deve ser informada");
+
+            try
+            {
+                using (var tcpClient = new TcpClient())
+                    tcpClient.Connect(options.Host, options.Port);
+            }
+            catch (SocketException e)
+            {
+                throw new InvalidOperationException($"A conexão com o FluentD no host {options.Host}:{options.Port} falhou", e);
+            }
+
+            var sinkOpts = new FluentdSinkOptions(options.Host, options.Port, options.Tag);
+
+            _log = new LoggerConfiguration().WriteTo.Fluentd(sinkOpts).CreateLogger();
         }
 
         public void Write(object record)
