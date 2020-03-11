@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Sample.LGPD.Usage
 {
-    internal class QuerySample : INoSQLQuery<Record, Filter>
+    public class LGPDQueryMock : INoSQLQuery<Record, Filter>
     {
         public void Configure(Dictionary<string, string> options)
         { }
@@ -17,4 +17,5 @@ namespace Sample.LGPD.Usage
             return new List<Record>();
         }
     }
+
 }

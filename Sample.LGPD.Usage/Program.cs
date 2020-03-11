@@ -1,75 +1,94 @@
 ﻿using Benner.LGPD;
 using Benner.NoSQLRepository.Interfaces;
 using Ninject;
-using System;
 
 namespace Sample.LGPD.Usage
 {
     class Program
     {
-        private static Repository _repository;
-
-
         static void Main(string[] args)
         {
-            // utilização padrão
-            DefaultUsage();
+            SimplestUsagePossible();
 
-            // com injeção de dependência geral: Command, Query e Config
             DependencyInjectionUsage();
 
-            // com injeção de configuração InMemory
-            InMemoryConfigUsage();
+            PartialInjectionUsage();
+
+            ExplicitInjectionUsage();
         }
 
-        private static void DefaultUsage()
+        private static void SimplestUsagePossible()
         {
-            _repository = new Repository();
-
-            SendToLog();
-
-            _repository.Dispose();
+            using (var repository = new Repository())
+                repository.Write(new Record {
+                        AccessUsername = "jose.silva.default",
+                        Details = new RecordDetails {
+                            Person = {
+                                { "CPF", "111.111.111-11" },
+                                { "PASSPORT", "IEY5AHXA" },
+                            },
+                            Fields = "EMAIL, SALARIO, ENDEREÇO",
+                            Table = "DO_FUNCIONARIOS",
+                        },
+                    });
         }
 
         private static void DependencyInjectionUsage()
         {
             var iocKernel = new StandardKernel();
 
-            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandSample>();
-            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
-            iocKernel.Bind<INoSQLConfiguration>().To<FileConfig>();
-
-            _repository = iocKernel.Get<Repository>();
-            SendToLog();
-            _repository.Dispose();
-        }
-
-        private static void InMemoryConfigUsage()
-        {
-            var iocKernel = new StandardKernel();
-
-            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandSample>();
-            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QuerySample>();
+            iocKernel.Bind<INoSQLCommand<Record>>().To<LGPDCommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<LGPDQueryMock>();
             iocKernel.Bind<INoSQLConfiguration>().To<InMemoryConfig>();
 
-            _repository = iocKernel.Get<Repository>();
-            SendToLog();
-            _repository.Dispose();
+            using (var repository = iocKernel.Get<Repository>())
+                repository.Write(new Record {
+                    AccessUsername = "jose.silva.injected",
+                    Details = new RecordDetails {
+                        Person = {
+                            { "CPF", "222.222.222-22" },
+                            { "PASSPORT", "OC725277" },
+                        },
+                        Fields = "EMAIL, SALARIO, ENDEREÇO",
+                        Table = "DO_FUNCIONARIOS",
+                    },
+                });
         }
 
-        private static void SendToLog()
+        private static void PartialInjectionUsage()
         {
-            _repository.Write(
-                new Record
-                {
-                    AccessTimestamp = DateTime.Now,
-                    AccessUsername = "abalóida!!!",
-                    Details = new RecordDetails
-                    {
-                        Person =
-                        {
-                                {"CPF", "123.123.321-44" },
-                                { "PASSPORT", "4444444" },
+            var iocKernel = new StandardKernel(new NinjectSettings { AllowNullInjection = true });
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<LGPDCommandMock>();
+
+            using (var repository = iocKernel.Get<Repository>())
+                repository.Write(new Record {
+                    AccessUsername = "jose.silva.partial.injected",
+                    Details = new RecordDetails {
+                        Person = {
+                            { "CPF", "333.333.333-33" },
+                            { "PASSPORT", "OC725277" },
+                        },
+                        Fields = "EMAIL, SALARIO, ENDEREÇO",
+                        Table = "DO_FUNCIONARIOS",
+                    },
+                });
+        }
+
+        private static void ExplicitInjectionUsage()
+        {
+            // dica: você pode informar apenas os parâmetros que deseja customizar, parâmetros não informados assumem o padrão
+            //using (var repository = new Repository(command: new LGPDCommandMock()))
+            //using (var repository = new Repository(query: new LGPDQueryMock()))
+            //using (var repository = new Repository(config: new InMemoryConfig()))
+
+            using (var repository = new Repository(new LGPDCommandMock(), new LGPDQueryMock(), new InMemoryConfig()))
+                repository.Write(new Record {
+                    AccessUsername = "jose.silva.explicit.injected",
+                    Details = new RecordDetails {
+                        Person = {
+                            { "CPF", "444.444.444-44" },
+                            { "PASSPORT", "OC725277" },
                         },
                         Fields = "EMAIL, SALARIO, ENDEREÇO",
                         Table = "DO_FUNCIONARIOS",

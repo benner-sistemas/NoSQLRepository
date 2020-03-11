@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Sample.LGPD.Usage
 {
-    internal class CommandSample : INoSQLCommand<Record>
+    public class LGPDCommandMock : INoSQLCommand<Record>
     {
         private FluentdCommand _fluentdCommand;
 

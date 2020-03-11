@@ -216,5 +216,61 @@ namespace Benner.LGPDRepository.Unit.Test
                 var repo = iocKernel.Get<Repository>();
             });
         }
+
+        [TestMethod]
+        public void TestandoTiposPadroes()
+        {
+            Assert.IsInstanceOfType(Repository.GetDefaultCommand(), typeof(Command));
+            Assert.IsInstanceOfType(Repository.GetDefaultQuery(), typeof(EmptyQuery));
+            Assert.IsInstanceOfType(Repository.GetDefaultConfig(), typeof(FileConfig));
+        }
+
+        [TestMethod]
+        public void TestandoInicializaçãoDoRecord()
+        {
+            var record = new Record();
+            var dif = DateTime.Now.Subtract(record.AccessTimestamp).TotalSeconds;
+            Assert.IsTrue(dif < 1);
+            Assert.IsTrue(string.IsNullOrEmpty(record.AccessUsername));
+            Assert.IsNull(record.Details);
+
+            var details = new RecordDetails();
+            Assert.IsTrue(string.IsNullOrEmpty(details.Fields));
+            Assert.IsTrue(string.IsNullOrEmpty(details.Table));
+            Assert.IsNotNull(details.Person);
+            Assert.IsInstanceOfType(details.Person, typeof(Dictionary<string, string>));
+        }
+
+        [TestMethod]
+        public void TestandoInjeçãoParcial()
+        {
+            var iocKernel = new StandardKernel(new NinjectSettings
+            {
+                AllowNullInjection = true
+            });
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            using (var repo = iocKernel.Get<Repository>())
+            {
+                Assert.IsNotNull(repo);
+                Assert.IsInstanceOfType(repo, typeof(Repository));
+                Assert.IsInstanceOfType(repo, typeof(IDisposable));
+
+                var commandField = typeof(Repository).BaseType.GetField("_command", BindingFlags.Instance | BindingFlags.NonPublic);
+                var queryField = typeof(Repository).BaseType.GetField("_query", BindingFlags.Instance | BindingFlags.NonPublic);
+                Assert.IsNotNull(commandField);
+                Assert.IsNotNull(queryField);
+
+                var commandInstance = commandField.GetValue(repo);
+                var queryInstance = queryField.GetValue(repo);
+                Assert.IsNotNull(commandInstance);
+                Assert.IsNotNull(queryInstance);
+
+                Assert.IsInstanceOfType(commandInstance, typeof(CommandMock));
+                Assert.IsInstanceOfType(commandInstance, typeof(IDisposable));
+                Assert.IsInstanceOfType(queryInstance, Repository.GetDefaultQuery().GetType());
+                Assert.IsInstanceOfType(queryInstance, typeof(IDisposable));
+            }
+        }
     }
 }
