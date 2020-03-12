@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Benner.LGPDRepository\Command.cs" Link="Command.cs" />
+    <Compile Include="..\Benner.LGPDRepository\EmptyQuery.cs" Link="EmptyQuery.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Filter.cs" Link="Filter.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Record\IRecordDetails.cs" Link="Record\IRecordDetails.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Record\Record.cs" Link="Record\Record.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Record\RecordDetails.cs" Link="Record\RecordDetails.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Benner.LGPDRepository\key.snk" Link="key.snk" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Record\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="StrongNamer" Version="0.2.5" />
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Benner.NoSQLRepository.Core\Benner.NoSQLRepository.Core.csproj" />
+  </ItemGroup>
+
+</Project>
