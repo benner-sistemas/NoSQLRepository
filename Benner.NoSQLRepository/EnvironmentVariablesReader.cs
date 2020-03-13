@@ -12,10 +12,16 @@ namespace Benner.NoSQLRepository
         {
             Settings = new Dictionary<string, string>
             {
-                { "fluentd:Host", Environment.GetEnvironmentVariable("fluentd-host")},
-                { "fluentd:Port", Environment.GetEnvironmentVariable("fluentd-port")},
-                { "fluentd:Tag",  Environment.GetEnvironmentVariable("fluentd-tag")},
+                { "fluentd:Host", GetEnvironmentVariable("fluentd-host")},
+                { "fluentd:Port", GetEnvironmentVariable("fluentd-port")},
+                { "fluentd:Tag",  GetEnvironmentVariable("fluentd-tag")},
             };
+        }
+
+        private string GetEnvironmentVariable(string value)
+        {
+            return Environment.GetEnvironmentVariable(value, EnvironmentVariableTarget.Machine)
+                ?? throw new InvalidOperationException($"Variável de ambiente '{value}' não foi encontrada");
         }
     }
 }

@@ -35,12 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Benner.LGPDRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.LGPDRepository.2.2.1\lib\net462\Benner.LGPDRepository.dll</HintPath>
-    </Reference>
-    <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.NoSQLRepository.2.0.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
-    </Reference>
     <Reference Include="MsgPack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
       <HintPath>..\packages\MsgPack.Cli.1.0.1\lib\net46\MsgPack.dll</HintPath>
     </Reference>
@@ -76,9 +70,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Benner.LGPDRepository\Benner.LGPDRepository.csproj">
+      <Project>{d4a8145d-0e27-4128-b418-50ac2061f28d}</Project>
+      <Name>Benner.LGPDRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Benner.NoSQLRepository\Benner.NoSQLRepository.csproj">
+      <Project>{e7614b8a-49e0-432f-b396-acfb582f7fb4}</Project>
+      <Name>Benner.NoSQLRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\StrongNamer.0.2.5\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
