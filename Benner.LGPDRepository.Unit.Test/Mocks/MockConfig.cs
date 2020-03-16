@@ -11,7 +11,7 @@ namespace Benner.LGPDRepository.Unit.Test.Mocks
         {
             Settings = new Dictionary<string, string>
             {
-                { "fluentd:Host", "localhost" },
+                { "fluentd:Host", "bnu-vtec012" },
                 { "fluentd:Port", "24224" },
                 { "fluentd:Tag", "lgpd.repository.logs" }
             };
