@@ -1,12 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\Benner.LGPDRepository.Core\Benner.LGPDRepository.Core.csproj" />
+    <PackageReference Include="Benner.LGPDRepository.Core" Version="1.1.0" />
+    <PackageReference Include="Benner.NoSQLRepository.Core" Version="1.1.0" />
+    <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
+    <PackageReference Include="Ninject" Version="3.3.4" />
+    <PackageReference Include="Serilog" Version="2.6.0" />
+    <PackageReference Include="Serilog.Sinks.Fluentd" Version="0.4.0" />
+    <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="2.3.0" />
+    <PackageReference Include="StrongNamer" Version="0.2.5" />
+    <PackageReference Include="System.Text.Json" Version="4.7.1" />
   </ItemGroup>
 
 </Project>
