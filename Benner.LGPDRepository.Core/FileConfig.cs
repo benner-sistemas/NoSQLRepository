@@ -12,22 +12,27 @@ namespace Benner.LGPDRepository.Core
 
         public void LoadSettings()
         {
-            var fluentDSettings = GetConfiguration();
+            var appSettings = GetConfiguration();
 
-            if (fluentDSettings == null)
+            if (appSettings == null)
             {
                 throw new System.Exception("appsettings.json doesn't exist.");
             }
 
+            if (appSettings.FluentDSettings == null)
+            {
+                throw new System.Exception("appsettings.json doesn't have FluentDSettings.");
+            }
+
             Settings = new Dictionary<string, string>
             {
-                { "fluentd:Host", fluentDSettings.Host },
-                { "fluentd:Port", fluentDSettings.Port },
-                { "fluentd:Tag", fluentDSettings.Tag }
+                { "fluentd:Host", appSettings.FluentDSettings.Host },
+                { "fluentd:Port", appSettings.FluentDSettings.Port },
+                { "fluentd:Tag", appSettings.FluentDSettings.Tag }
             };
         }
 
-        private FluentDSettings GetConfiguration()
+        public static AppSettings GetConfiguration()
         {
             string fileConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json");
 
@@ -37,7 +42,7 @@ namespace Benner.LGPDRepository.Core
 
                 if (!string.IsNullOrWhiteSpace(configJson))
                 {
-                    return JsonSerializer.Deserialize<FluentDSettings>(configJson);
+                    return JsonSerializer.Deserialize<AppSettings>(configJson);
                 }
             }
 
