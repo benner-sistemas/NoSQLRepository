@@ -19,7 +19,7 @@ namespace Sample.LGPD.Usage
 
         private static void SimplestUsagePossible()
         {
-            using (var repository = new Repository(new Command(), new EmptyQuery(), new Benner.NoSQLRepository.EnvironmentVariablesReader()))
+            using (var repository = new Repository())
                 repository.Write(new Record {
                         AccessUsername = "jose.silva.default",
                         Details = new RecordDetails {

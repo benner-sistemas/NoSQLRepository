@@ -4,15 +4,12 @@ using System.Configuration;
 
 namespace Benner.NoSQLRepository
 {
-    public class EnvironmentVariablesReader : Interfaces.INoSQLConfiguration
+    public class ContainerConfig : Interfaces.INoSQLConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
 
-        
-
         public void LoadSettings()
         {
-            
             Settings = new Dictionary<string, string>
             {
                 { "fluentd:Host", GetEnvironmentVariable("fluentd-host")},

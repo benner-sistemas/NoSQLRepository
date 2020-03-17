@@ -1,5 +1,6 @@
 ﻿using Benner.LGPD;
 using Benner.LGPDRepository.Unit.Test.Mocks;
+using Benner.NoSQLRepository;
 using Benner.NoSQLRepository.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
@@ -271,6 +272,29 @@ namespace Benner.LGPDRepository.Unit.Test
                 Assert.IsInstanceOfType(queryInstance, Repository.GetDefaultQuery().GetType());
                 Assert.IsInstanceOfType(queryInstance, typeof(IDisposable));
             }
+        }
+
+        [TestMethod]
+        public void TestandoVariaveisDeAmbiente()
+        {
+            Environment.SetEnvironmentVariable("fluentd-host", "bnu-vtec012");
+            Environment.SetEnvironmentVariable("fluentd-port", "24224");
+            Environment.SetEnvironmentVariable("fluentd-tag", "lgpd.repository.logs");
+
+            using (var repository = new Repository(new Command(), new EmptyQuery(), new ContainerConfig()))
+                repository.Write(new Record
+                {
+                    AccessUsername = "jose.silva.default",
+                    Details = new RecordDetails
+                    {
+                        Person = {
+                        { "CPF", "111.111.111-11" },
+                        { "PASSPORT", "IEY5AHXA" },
+                    },
+                        Fields = "EMAIL, SALARIO, ENDEREÇO",
+                        Table = "DO_FUNCIONARIOS",
+                    },
+                });
         }
     }
 }

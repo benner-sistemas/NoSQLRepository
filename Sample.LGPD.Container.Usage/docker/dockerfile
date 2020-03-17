@@ -1,0 +1,3 @@
+FROM microsoft/dotnet-framework:4.7.2-runtime-windowsservercore-ltsc2019
+COPY /dlls /
+ENTRYPOINT Sample.LGPD.Container.Usage.exe
