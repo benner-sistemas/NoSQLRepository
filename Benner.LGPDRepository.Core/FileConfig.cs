@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Benner.LGPDRepository.Core
+namespace Benner.LGPD
 {
     public class FileConfig : INoSQLConfiguration
     {
