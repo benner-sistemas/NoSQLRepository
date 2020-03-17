@@ -15,6 +15,7 @@
     <Compile Include="..\Benner.LGPDRepository\Record\IRecordDetails.cs" Link="Record\IRecordDetails.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\Record.cs" Link="Record\Record.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\RecordDetails.cs" Link="Record\RecordDetails.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Repository.cs" Link="Repository.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Benner.NoSQLRepository.Core" Version="1.0.0" />
+    <PackageReference Include="Benner.NoSQLRepository.Core" Version="1.2.0" />
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="Serilog" Version="2.6.0" />
