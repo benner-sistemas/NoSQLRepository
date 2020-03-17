@@ -1,10 +1,5 @@
 using Benner.LGPD;
 using Benner.NoSQLRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sample.LGPD.Container.Usage
 {

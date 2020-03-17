@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Benner.LGPDRepository.Core.Unit.Test": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\benner\\Fontes\\NoSQLRepository\\Benner.LGPDRepository.Core.Unit.Test\\Settings"
+    }
+  }
+}
