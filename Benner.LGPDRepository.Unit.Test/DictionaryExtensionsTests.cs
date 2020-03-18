@@ -11,10 +11,10 @@ namespace Benner.LGPDRepository.Unit.Test
         [TestMethod]
         public void ExtensaoDeveTransformarApenasPropriedadesComPrefixoInformado()
         {
-            var dictionary = new Dictionary<string, string> { { "fluentd:host", "localhost" }, { "fluentd:Port", "24224" }, { "TAG", "lgdp.repository" } };
+            var dictionary = new Dictionary<string, string> { { "fluentd:host", "bnu-vtec012" }, { "fluentd:Port", "24224" }, { "TAG", "lgdp.repository" } };
             var options = dictionary.TransformTo<FluentdOptions>("fluentd:");
 
-            Assert.AreEqual("localhost", options.Host);
+            Assert.AreEqual("bnu-vtec012", options.Host);
             Assert.AreEqual(24224, options.Port);
             Assert.IsNull(options.Tag);
         }
