@@ -75,6 +75,7 @@
     <Compile Include="Record\IRecordDetails.cs" />
     <Compile Include="Record\RecordDetails.cs" />
     <Compile Include="Record\Record.cs" />
+    <Compile Include="Record\ReportDetails.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
