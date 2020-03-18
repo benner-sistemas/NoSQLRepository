@@ -15,6 +15,7 @@
     <Compile Include="..\Benner.LGPDRepository\Record\IRecordDetails.cs" Link="Record\IRecordDetails.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\Record.cs" Link="Record\Record.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\RecordDetails.cs" Link="Record\RecordDetails.cs" />
+    <Compile Include="..\Benner.LGPDRepository\Record\ReportDetails.cs" Link="Record\ReportDetails.cs" />
     <Compile Include="..\Benner.LGPDRepository\Repository.cs" Link="Repository.cs" />
   </ItemGroup>
 

@@ -1,4 +1,4 @@
-﻿namespace Benner.LGPD.Record
+﻿namespace Benner.LGPD
 {
     public class ReportDetails : IRecordDetails
     {
