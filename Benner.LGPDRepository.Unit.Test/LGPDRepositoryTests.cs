@@ -281,7 +281,17 @@ namespace Benner.LGPDRepository.Unit.Test
             Environment.SetEnvironmentVariable("fluentd-port", "24224");
             Environment.SetEnvironmentVariable("fluentd-tag", "lgpd.repository.logs");
 
-            using (var repository = new Repository(new Command(), new EmptyQuery(), new ContainerConfig()))
+            var config = new ContainerConfig();
+            Assert.IsNotNull(config);
+            Assert.IsNull(config.Settings);
+            config.LoadSettings();
+            Assert.IsNotNull(config.Settings);
+            Assert.AreEqual(config.Settings["fluentd:Host"], "bnu-vtec012");
+            Assert.AreEqual(config.Settings["fluentd:Port"], "24224");
+            Assert.AreEqual(config.Settings["fluentd:Tag"], "lgpd.repository.logs");
+
+
+            using (var repository = new Repository(new Command(), new EmptyQuery(), config))
                 repository.Write(new Record
                 {
                     AccessUsername = "jose.silva.default",
