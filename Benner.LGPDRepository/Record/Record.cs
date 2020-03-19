@@ -7,6 +7,7 @@ namespace Benner.LGPD
     {
         public DateTime AccessTimestamp { get; set; } = DateTime.Now;
         public string AccessUsername { get; set; }
+        public string AccessIP { get; set; }
         public IRecordDetails Details { get; set; }
     }
 }
