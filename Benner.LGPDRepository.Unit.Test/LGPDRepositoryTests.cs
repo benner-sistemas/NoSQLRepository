@@ -305,6 +305,9 @@ namespace Benner.LGPDRepository.Unit.Test
                         Table = "DO_FUNCIONARIOS",
                     },
                 });
+            Environment.SetEnvironmentVariable("fluentd-host", "");
+            Environment.SetEnvironmentVariable("fluentd-port", "");
+            Environment.SetEnvironmentVariable("fluentd-tag", "");
         }
     }
 }
