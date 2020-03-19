@@ -5,11 +5,11 @@
         /// <summary>
         /// Nome do relatório
         /// </summary>
-        public string Nome { get; set; }
+        public string ReportName { get; set; }
 
         /// <summary>
         /// Código do relatório
         /// </summary>
-        public string Codigo { get; set; }
+        public string ReportCode { get; set; }
     }
 }

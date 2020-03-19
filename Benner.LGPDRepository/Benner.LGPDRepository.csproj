@@ -40,7 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.NoSQLRepository.2.4.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
+      <HintPath>..\packages\Benner.NoSQLRepository.2.6.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
     </Reference>
     <Reference Include="MsgPack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
       <HintPath>..\packages\MsgPack.Cli.1.0.1\lib\net46\MsgPack.dll</HintPath>
