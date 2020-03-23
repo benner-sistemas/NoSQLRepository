@@ -314,5 +314,22 @@ namespace Benner.LGPDRepository.Unit.Test
             Environment.SetEnvironmentVariable("fluentd-port", "");
             Environment.SetEnvironmentVariable("fluentd-tag", "");
         }
+
+        [TestMethod]
+        public void RepositorioDeveManterStatusIndicandoSeEstaDisposed()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+            iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
+
+            var repository = iocKernel.Get<Repository>();
+            Assert.IsFalse(repository.Disposed);
+
+            repository.Dispose();
+            Assert.IsTrue(repository.Disposed);
+
+        }
     }
 }
