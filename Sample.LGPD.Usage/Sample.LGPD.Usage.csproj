@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Benner.LGPDRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.LGPDRepository.2.7.0\lib\net462\Benner.LGPDRepository.dll</HintPath>
+      <HintPath>..\packages\Benner.LGPDRepository.2.7.1\lib\net462\Benner.LGPDRepository.dll</HintPath>
     </Reference>
     <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
       <HintPath>..\packages\Benner.NoSQLRepository.2.7.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
