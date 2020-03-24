@@ -42,7 +42,7 @@ namespace Sample.LGPD.Usage
 
             iocKernel.Bind<INoSQLCommand<Record>>().To<LGPDCommandMock>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<LGPDQueryMock>();
-            iocKernel.Bind<INoSQLConfiguration>().To<InMemoryConfig>();
+            iocKernel.Bind<ILGPDConfiguration>().To<InMemoryConfig>();
 
             using (var repository = iocKernel.Get<Repository>())
                 repository.Write(new Record
