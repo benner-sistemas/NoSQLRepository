@@ -6,9 +6,10 @@ using System.Text.Json;
 
 namespace Benner.LGPD
 {
-    public class FileConfig : INoSQLConfiguration
+    public class FileConfig : ILGPDConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
+        public TracerLevel Level { get; set; }
 
         public void LoadSettings()
         {
@@ -30,6 +31,7 @@ namespace Benner.LGPD
                 { "fluentd:Port", appSettings.FluentDSettings.Port },
                 { "fluentd:Tag", appSettings.FluentDSettings.Tag }
             };
+            Level = TracerLevel.Full;
         }
 
         public static AppSettings GetConfiguration()

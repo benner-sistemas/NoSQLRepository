@@ -4,9 +4,10 @@ using System.Configuration;
 
 namespace Benner.LGPD
 {
-    public class FileConfig : INoSQLConfiguration
+    public class FileConfig : ILGPDConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
+        public TracerLevel Level { get; set; }
 
         public void LoadSettings()
         {

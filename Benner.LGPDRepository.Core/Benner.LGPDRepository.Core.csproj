@@ -6,13 +6,14 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <Authors>Benner Sistemas</Authors>
-    <Version>1.4.1</Version>
+    <Version>1.4.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\Benner.LGPDRepository\Command.cs" Link="Command.cs" />
     <Compile Include="..\Benner.LGPDRepository\EmptyQuery.cs" Link="EmptyQuery.cs" />
     <Compile Include="..\Benner.LGPDRepository\Filter.cs" Link="Filter.cs" />
+    <Compile Include="..\Benner.LGPDRepository\ILGPDConfiguration.cs" Link="ILGPDConfiguration.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\IRecordDetails.cs" Link="Record\IRecordDetails.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\Record.cs" Link="Record\Record.cs" />
     <Compile Include="..\Benner.LGPDRepository\Record\RecordDetails.cs" Link="Record\RecordDetails.cs" />
@@ -29,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Benner.NoSQLRepository.Core" Version="1.4.0" />
+    <PackageReference Include="Benner.NoSQLRepository.Core" Version="1.4.2" />
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="Serilog" Version="2.6.0" />
