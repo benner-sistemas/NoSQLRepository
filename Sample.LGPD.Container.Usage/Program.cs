@@ -11,12 +11,13 @@ namespace Sample.LGPD.Container.Usage
                 repository.Write(new Record
                 {
                     AccessUsername = "jose.silva.default",
+                    AccessIP = "127.0.0.1",
                     Details = new RecordDetails
                     {
                         Person = {
-                        { "CPF", "111.111.111-11" },
-                        { "PASSPORT", "IEY5AHXA" },
-                    },
+                            { "CPF", "111.111.111-11" },
+                            { "PASSPORT", "IEY5AHXA" },
+                        },
                         Fields = "EMAIL, SALARIO, ENDEREÇO",
                         Table = "DO_FUNCIONARIOS",
                     },

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Benner.LGPD;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 
 namespace Benner.NoSQLRepository
 {
-    public class ContainerConfig : Interfaces.INoSQLConfiguration
+    public class ContainerConfig : ILGPDConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
+        public TracerLevel Level { get; set; }
 
         public void LoadSettings()
         {

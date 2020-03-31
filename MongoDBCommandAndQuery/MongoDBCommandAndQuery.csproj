@@ -36,7 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, PublicKeyToken=257abf4668fbf313, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.NoSQLRepository.2.3.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
+      <HintPath>..\packages\Benner.NoSQLRepository.2.7.0\lib\net462\Benner.NoSQLRepository.dll</HintPath>
     </Reference>
     <Reference Include="Crc32C.NET, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
@@ -111,8 +111,12 @@
     <Compile Include="Repository\BooksRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\StrongNamer.0.2.5\build\StrongNamer.targets" Condition="Exists('..\packages\StrongNamer.0.2.5\build\StrongNamer.targets')" />

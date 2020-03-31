@@ -50,11 +50,23 @@ namespace Benner.NoSQLRepository
 
         public void Dispose()
         {
-            if (_command is IDisposable disposableCommand)
-                disposableCommand.Dispose();
+            try
+            {
+                if (_command is IDisposable disposableCommand)
+                    try { disposableCommand.Dispose(); } catch { /*ignore errors*/ }
 
-            if (_query is IDisposable disposableQuery)
-                disposableQuery.Dispose();
+                if (_query is IDisposable disposableQuery)
+                    try { disposableQuery.Dispose(); } catch { /*ignore errors*/ }
+            }
+            finally
+            {
+                Disposed = true;
+            }
         }
+
+        /// <summary>
+        /// Indica se esta instância já foi liberada
+        /// </summary>
+        public bool Disposed { get; private set; } = false;
     }
 }

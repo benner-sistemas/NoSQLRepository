@@ -20,7 +20,7 @@ namespace Benner.LGPDRepository.Unit.Test
 
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
+            iocKernel.Bind<ILGPDConfiguration>().To<MockConfig>();
 
             var repository = iocKernel.Get<Repository>();
 
@@ -28,6 +28,7 @@ namespace Benner.LGPDRepository.Unit.Test
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "sysdba",
+                AccessIP = "127.0.0.1",
                 Details = new RecordDetails
                 {
                     Person =
@@ -43,6 +44,7 @@ namespace Benner.LGPDRepository.Unit.Test
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "joao.melo",
+                AccessIP = "127.0.0.1",
                 Details = new RecordDetails
                 {
                     Person =
@@ -58,6 +60,7 @@ namespace Benner.LGPDRepository.Unit.Test
             {
                 AccessTimestamp = DateTime.Now,
                 AccessUsername = "joao.melo",
+                AccessIP = "127.0.0.1",
                 Details = new RecordDetails
                 {
                     Person =
@@ -85,7 +88,7 @@ namespace Benner.LGPDRepository.Unit.Test
 
             iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            iocKernel.Bind<INoSQLConfiguration>().To<MockConfig>();
+            iocKernel.Bind<ILGPDConfiguration>().To<MockConfig>();
 
             using (var repository = iocKernel.Get<Repository>())
             {
@@ -109,7 +112,7 @@ namespace Benner.LGPDRepository.Unit.Test
             var iocKernel = new StandardKernel();
             iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
             iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
-            iocKernel.Bind<INoSQLConfiguration>().To<FileConfig>();
+            iocKernel.Bind<ILGPDConfiguration>().To<FileConfig>();
 
             using (var repository = iocKernel.Get<Repository>())
             {
@@ -213,7 +216,7 @@ namespace Benner.LGPDRepository.Unit.Test
             {
                 iocKernel.Bind<INoSQLCommand<Record>>().To<Command>();
                 iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<EmptyQuery>();
-                iocKernel.Bind<INoSQLConfiguration>().To<EmptyConfigMock>();
+                iocKernel.Bind<ILGPDConfiguration>().To<EmptyConfigMock>();
                 var repo = iocKernel.Get<Repository>();
             });
         }
@@ -295,16 +298,38 @@ namespace Benner.LGPDRepository.Unit.Test
                 repository.Write(new Record
                 {
                     AccessUsername = "jose.silva.default",
+                    AccessIP = "127.0.0.1",
                     Details = new RecordDetails
                     {
-                        Person = {
-                        { "CPF", "111.111.111-11" },
-                        { "PASSPORT", "IEY5AHXA" },
-                    },
+                        Person =
+                        {
+                            { "CPF", "111.111.111-11" },
+                            { "PASSPORT", "IEY5AHXA" },
+                        },
                         Fields = "EMAIL, SALARIO, ENDEREÇO",
                         Table = "DO_FUNCIONARIOS",
                     },
                 });
+            Environment.SetEnvironmentVariable("fluentd-host", "");
+            Environment.SetEnvironmentVariable("fluentd-port", "");
+            Environment.SetEnvironmentVariable("fluentd-tag", "");
+        }
+
+        [TestMethod]
+        public void RepositorioDeveManterStatusIndicandoSeEstaDisposed()
+        {
+            var iocKernel = new StandardKernel();
+
+            iocKernel.Bind<INoSQLCommand<Record>>().To<CommandMock>();
+            iocKernel.Bind<INoSQLQuery<Record, Filter>>().To<QueryMock>();
+            iocKernel.Bind<ILGPDConfiguration>().To<MockConfig>();
+
+            var repository = iocKernel.Get<Repository>();
+            Assert.IsFalse(repository.Disposed);
+
+            repository.Dispose();
+            Assert.IsTrue(repository.Disposed);
+
         }
     }
 }

@@ -1,11 +1,13 @@
-﻿using Benner.NoSQLRepository.Interfaces;
+﻿using Benner.LGPD;
+using Benner.NoSQLRepository.Interfaces;
 using System.Collections.Generic;
 
 namespace Sample.LGPD.Usage
 {
-    public class InMemoryConfig : INoSQLConfiguration
+    public class InMemoryConfig : ILGPDConfiguration
     {
         public Dictionary<string, string> Settings { get; set; }
+        public TracerLevel Level { get; set; }
 
         public void LoadSettings()
         {
