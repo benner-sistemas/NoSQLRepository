@@ -73,6 +73,7 @@
     <Compile Include="FileConfig.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="ILGPDConfiguration.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Record\IRecordDetails.cs" />
     <Compile Include="Record\RecordDetails.cs" />
     <Compile Include="Record\Record.cs" />
