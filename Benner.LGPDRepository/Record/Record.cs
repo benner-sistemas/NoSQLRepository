@@ -9,5 +9,6 @@ namespace Benner.LGPD
         public string AccessUsername { get; set; }
         public string AccessIP { get; set; }
         public IRecordDetails Details { get; set; }
+        public string System { get; set; }
     }
 }
