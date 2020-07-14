@@ -22,10 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Benner.NoSQLRepository\key.snk" Link="key.snk" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
     <PackageReference Include="Ninject" Version="3.3.4" />
     <PackageReference Include="Serilog" Version="2.6.0" />
