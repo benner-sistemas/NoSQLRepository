@@ -39,7 +39,7 @@
       <HintPath>..\packages\Benner.LGPDRepository.2.8.0\lib\net462\Benner.LGPDRepository.dll</HintPath>
     </Reference>
     <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.NoSQLRepository.2.8.1\lib\net462\Benner.NoSQLRepository.dll</HintPath>
+      <HintPath>..\packages\Benner.NoSQLRepository.2.8.2\lib\net462\Benner.NoSQLRepository.dll</HintPath>
     </Reference>
     <Reference Include="MsgPack, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
       <HintPath>..\packages\MsgPack.Cli.1.0.1\lib\net46\MsgPack.dll</HintPath>

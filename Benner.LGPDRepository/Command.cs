@@ -16,7 +16,7 @@ namespace Benner.LGPD
 
         public void Dispose()
         {
-            _fluentdCommand.Dispose();
+            _fluentdCommand?.Dispose();
         }
 
         public void Write(Record value)

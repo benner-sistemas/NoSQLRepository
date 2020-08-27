@@ -44,7 +44,7 @@ namespace Benner.NoSQLRepository
         public void Dispose()
         {
             //flush and close fluentd tcp connection
-            _log.Dispose();
+            _log?.Dispose();
         }
 
         ~FluentdCommand()
