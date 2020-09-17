@@ -16,6 +16,11 @@
     <WarningsAsErrors />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\Benner.LGPDRepository\Command.cs" Link="Command.cs" />
     <Compile Include="..\Benner.LGPDRepository\EmptyQuery.cs" Link="EmptyQuery.cs" />

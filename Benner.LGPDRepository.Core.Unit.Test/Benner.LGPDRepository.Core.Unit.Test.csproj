@@ -11,6 +11,11 @@
     <WarningsAsErrors />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\Benner.LGPDRepository.Unit.Test\DictionaryExtensionsTests.cs" Link="DictionaryExtensionsTests.cs" />
     <Compile Include="..\Benner.LGPDRepository.Unit.Test\LGPDRepositoryTests.cs" Link="LGPDRepositoryTests.cs" />

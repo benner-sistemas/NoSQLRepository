@@ -18,6 +18,11 @@
     <NoWarn>1701;1702,8002</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\Benner.NoSQLRepository\Extensions\DictionaryExtensions.cs" Link="Extensions\DictionaryExtensions.cs" />
     <Compile Include="..\Benner.NoSQLRepository\FluentdCommand.cs" Link="FluentdCommand.cs" />
