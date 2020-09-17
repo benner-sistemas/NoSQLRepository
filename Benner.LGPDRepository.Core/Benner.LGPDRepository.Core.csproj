@@ -6,7 +6,14 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <Authors>Benner Sistemas</Authors>
-    <Version>1.4.2</Version>
+    <Version>20.1.0.0</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>C:\Benner\Fontes\NoSQLRepository\Benner.LGPDRepository\Benner.LGPDRepository.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,6 +30,10 @@
 
   <ItemGroup>
     <Folder Include="Record\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Benner.LGPDRepository\Benner.LGPDRepository.snk" Link="Benner.LGPDRepository.snk" />
   </ItemGroup>
 
   <ItemGroup>

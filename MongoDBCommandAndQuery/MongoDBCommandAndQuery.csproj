@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Benner.NoSQLRepository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Benner.NoSQLRepository.2.8.2\lib\net462\Benner.NoSQLRepository.dll</HintPath>
-    </Reference>
     <Reference Include="Crc32C.NET, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Crc32C.NET.1.0.5.0\lib\net20\Crc32C.NET.dll</HintPath>
       <Private>True</Private>
@@ -71,7 +68,7 @@
       <HintPath>..\packages\Serilog.2.6.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.Fluentd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Serilog.Sinks.Fluentd.0.4.0\lib\net45\Serilog.Sinks.Fluentd.dll</HintPath>
+      <HintPath>..\packages\Serilog.Sinks.Fluentd.Signed.0.4.0\lib\net45\Serilog.Sinks.Fluentd.dll</HintPath>
     </Reference>
     <Reference Include="Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.Sinks.PeriodicBatching.2.3.0\lib\net45\Serilog.Sinks.PeriodicBatching.dll</HintPath>
@@ -117,6 +114,16 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Benner.LGPDRepository\Benner.LGPDRepository.csproj">
+      <Project>{d4a8145d-0e27-4128-b418-50ac2061f28d}</Project>
+      <Name>Benner.LGPDRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Benner.NoSQLRepository\Benner.NoSQLRepository.csproj">
+      <Project>{e7614b8a-49e0-432f-b396-acfb582f7fb4}</Project>
+      <Name>Benner.NoSQLRepository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

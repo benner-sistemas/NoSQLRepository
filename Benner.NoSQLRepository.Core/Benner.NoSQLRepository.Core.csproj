@@ -7,7 +7,15 @@
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Copyright>Benner Sistemas</Copyright>
-    <Version>1.4.2</Version>
+    <Version>20.1.0.0</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>C:\Benner\Fontes\NoSQLRepository\Benner.NoSQLRepository\Benner.NoSQLRepository.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>1701;1702,8002</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +40,10 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Benner.NoSQLRepository\Benner.NoSQLRepository.snk" Link="Benner.NoSQLRepository.snk" />
   </ItemGroup>
 
 </Project>
